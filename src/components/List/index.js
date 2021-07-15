@@ -7,12 +7,22 @@ const List = ({ lists }) => (
     {lists.map((list) => (
       <li key={list.id}>
         <label className={list.done ? 'list-item list-item--done' : 'list-item'}>
-          <input type="checkbox" checked />
+          {list.done ? <input type="checkbox" checked /> : <input type="checkbox" />}
           {list.label}
         </label>
       </li>
     ))}
   </ul>
 );
+
+List.propTypes = {
+  lists: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      done: PropTypes.bool.isRequired,
+      id: PropTypes.number.isRequired,
+    }).isRequired,
+  ).isRequired,
+};
 
 export default List;

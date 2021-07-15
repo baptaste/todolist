@@ -3,14 +3,14 @@ import './form.scss';
 import PropTypes from 'prop-types';
 
 const Form = ({ inputValue, onFormChange, onFormSubmit }) => (
-  <form className="form">
+  <form className="form" onSubmit={onFormSubmit}>
     <input
       type="text"
       className="form-item"
       placeholder="Ajouter une tâche"
       value={inputValue}
       onChange={onFormChange}
-      onSubmit={onFormSubmit}
+
     />
   </form>
 );
