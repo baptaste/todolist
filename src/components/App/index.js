@@ -4,7 +4,11 @@ import React, { Component } from 'react';
 
 // == Import
 import Form from 'src/components/Form';
+import Counter from 'src/components/Counter';
+import List from 'src/components/List';
 import './app.scss';
+
+import tasksData from 'src/data/tasks';
 
 // == Composant
 class App extends Component {
@@ -13,6 +17,7 @@ class App extends Component {
 
     this.state = {
       userValue: '',
+      baseCounter: 2,
     };
 
     this.handleFormChange = this.handleFormChange.bind(this);
@@ -28,6 +33,8 @@ class App extends Component {
     return (
       <div className="app">
         <Form inputValue={this.state.userValue} onFormChange={this.handleFormChange} />
+        <Counter baseCounter={this.state.baseCounter} />
+        <List lists={tasksData} />
       </div>
     );
   }

@@ -1,5 +1,6 @@
 import React from 'react';
 import './form.scss';
+import PropTypes from 'prop-types';
 
 const Form = ({ inputValue, onFormChange, onFormSubmit }) => (
   <form className="form">
@@ -13,5 +14,11 @@ const Form = ({ inputValue, onFormChange, onFormSubmit }) => (
     />
   </form>
 );
+
+Form.propTypes = {
+  inputValue: PropTypes.string.isRequired,
+  onFormChange: PropTypes.func.isRequired,
+  onFormSubmit: PropTypes.func.isRequired,
+};
 
 export default Form;
